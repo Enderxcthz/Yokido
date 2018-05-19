@@ -52,3 +52,5 @@ async def ban(ctx)
 async def unban(ctx)    
     await bot.say("User was unbanned successfully! Your welcome. :smile:")
     await bot.unban(user)
+    
+bot.run(os.environ["NDQ3MDU2ODIwMTU1MTg3MjAz.DeCECA.kq8wNxOYU2Dwf7I97GGcFsxwiyo"])
