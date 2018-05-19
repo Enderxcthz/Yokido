@@ -1,1 +1,1 @@
-worker: python/js file.py/js
+worker: python bot.py
