@@ -36,12 +36,19 @@ async def getdiscordinfo(ctx, user: discord.Member):
 @bot.command(pass_context=True)
 async def kick(ctx, user: discord.Member):
     await bot.say("You kicked us {}, Now we kick you :pensive:".format(user.name))
+    or await bot.say("Nu-uh No breaking rules here boi, GET OUT! :boot:")
     await bot.kick(user)
 
 @bot.command(pass_context=True)
 async def version(ctx):
     await bot.say ("Current Bot version is: `Unofficial, Still early access.`")
-    
 
+@bot.command(pass_context=True)
+async def ban(ctx)
+    await bot.say("You broke the rules, now get banned fool! :scream:")
+    await bot.ban(user)
 
-bot.run("NDQ3MDU2ODIwMTU1MTg3MjAz.DeCECA.kq8wNxOYU2Dwf7I97GGcFsxwiyo")
+@bot.command(pass_context=True)
+async def unban(ctx)    
+    await bot.say("User was unbanned successfully! Your welcome. :smile:")
+    await bot.unban(user)
