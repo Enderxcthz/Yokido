@@ -36,7 +36,6 @@ async def getdiscordinfo(ctx, user: discord.Member):
 @bot.command(pass_context=True)
 async def kick(ctx, user: discord.Member):
     await bot.say("You kicked us {}, Now we kick you :pensive:".format(user.name))
-    or await bot.say("Nu-uh No breaking rules here boi, GET OUT! :boot:")
     await bot.kick(user)
 
 @bot.command(pass_context=True)
