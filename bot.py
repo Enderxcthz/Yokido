@@ -43,13 +43,13 @@ async def version(ctx):
     await bot.say ("Current Bot version is: `Unofficial, Still early access.`")
 
 @bot.command(pass_context=True)
-async def ban(ctx):
-    await bot.say("You broke the rules, now get banned fool! :scream:")
+async def ban(ctx, user: discord.Member):
+    await bot.say("You broke the rules, now get banned fool! :scream:".format(user.name))
     await bot.ban(user)
 
 @bot.command(pass_context=True)
-async def unban(ctx):   
-    await bot.say("User was unbanned successfully! Your welcome. :smile:")
+async def unban(ctx, user: discord.Member): 
+    await bot.say("User was unbanned successfully! Your welcome. :smile:".format(user.name))
     await bot.unban(user)
     
 bot.run(os.environ["TOKEN"])
