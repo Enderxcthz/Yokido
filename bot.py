@@ -58,4 +58,6 @@ async def roast(ctx, user: discord.Member):
     messages = ['foo', 'bar', 'baz', 'bork']
     await bot.say(random.choice(messages))
     
+    client.change.presence('This is a test')
+    
 bot.run(os.environ["TOKEN"])
