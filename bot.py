@@ -5,8 +5,6 @@ from discord.ext import commands
 from discord.ext.commands import Bot
 import asyncio
 import os
-import user
-import Member
 
 bot = commands.Bot(command_prefix='_')
 
@@ -56,8 +54,8 @@ async def roast(ctx, user: discord.Member):
     await bot.say(random.choice(messages))
 
 @bot.command(pass_context=True)
-async def help(ctx, member: discord.Member):
-    await bot.send_message(Member, 'You need help? Cash me outside, HOW ABOU- no im just kidding :persevere:')
-    await bot.send_message(Member, 'https://hastebin.com/jazipaxeke.vbs')
+async def help(ctx):
+    await bot.send_message(ctx.author, 'You need help? Cash me outside, HOW ABOU- no im just kidding :persevere:')
+    await bot.send_message(ctx.author, 'https://hastebin.com/jazipaxeke.vbs')
 
     bot.run(os.environ["TOKEN"])
