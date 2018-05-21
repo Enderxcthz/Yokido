@@ -58,6 +58,8 @@ async def roast(ctx, user: discord.Member):
     messages = ['foo', 'bar', 'baz', 'bork']
     await bot.say(random.choice(messages))
     
-    client.change.presence('This is a test')
+game = discord.Game(name='Testing', type=1)
+await bot.change_presence(game=game)
+
     
 bot.run(os.environ["TOKEN"])
