@@ -45,12 +45,17 @@ async def version(ctx):
 
 @bot.command(pass_context=True)
 async def ban(ctx, user: discord.Member):
-    await bot.say("You broke the rules, now get banned fool! :scream:".format(user.name))
+    await bot.say("You broke the rules {}, now get banned fool! :scream:".format(user.name))
     await bot.ban(user)
 
 @bot.command(pass_context=True)
 async def unban(ctx, user: discord.Member): 
-    await bot.say("User was unbanned successfully! Your welcome. :smile:".format(user.name))
+    await bot.say("{} was unbanned successfully! Your welcome. :smile:".format(user.name))
     await bot.unban(user)
+    
+@bot.command(pass_context=True)
+async def roast(ctx, user: discord.Member):
+    messages = ['foo', 'bar', 'baz', 'bork']
+    await bot.say(random.choice(messages))
     
 bot.run(os.environ["TOKEN"])
