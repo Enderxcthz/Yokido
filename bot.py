@@ -59,4 +59,5 @@ async def help(ctx):
     await bot.send_message(ctx.author, 'https://hastebin.com/jazipaxeke.vbs')
     
     bot.remove_command('help')
+    
     bot.run(os.environ["TOKEN"])
