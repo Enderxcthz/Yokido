@@ -54,8 +54,8 @@ async def roast(ctx, user: discord.Member):
     await bot.say(random.choice(messages))
 
 @bot.command(pass_context=True)
-async def help(ctx, member: discord.Member):
-    await bot.send_message(member, 'You need help? Cash me outside, HOW ABOU- no im just kidding :persevere:')
-    await bot.send_message(member, 'https://hastebin.com/jazipaxeke.vbs')
+async def help(ctx, user: discord.Member):
+    await bot.send_message(user, 'You need help? Cash me outside, HOW ABOU- no im just kidding :persevere:')
+    await bot.send_message(user, 'https://hastebin.com/jazipaxeke.vbs')
 
     bot.run(os.environ["TOKEN"])
