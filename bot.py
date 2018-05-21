@@ -60,4 +60,5 @@ async def help(ctx):
     await bot.send_message(ctx.author, 'You need help? Cash me outside, HOW ABOU- no im just kidding :persevere:')
     await bot.send_message(ctx.author, 'https://hastebin.com/jazipaxeke.vbs')
     
-    bot.run(os.environ["TOKEN"])
+
+bot.run(os.environ["TOKEN"])
