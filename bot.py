@@ -17,12 +17,7 @@ async def on_ready():
 @bot.command(pass_context=True)
 async def introduction(ctx):
     await bot.say("Konichi- ugh forget, was never an A* even at my own language! HOI OVER THERE! :wave: I am **Yokido**! The bot of all bots! (-i think, das is vat my creator told meh!) I am an *EXCULSIVE* (well not rlly :joy:) bot in EXTREME EARLY ACCESS! But judging by your facial expression, you don't care, cya bub! :wink:")
-    await bot.say("**Current usable commands are:**")
-    await bot.say("`Introduction` Get a full introduction on guess who..?")
-    await bot.say("`getdiscordinfo` **EXCLUSIVE UNIQUE YOKIDO COMMAND!** Get the full jist of where a certain user's details. :astonished:")
-    await bot.say("`kick` **MODS+ ONLY** Kick them booties right outta here!")
-    await bot.say("`version` *Pretty self explanatory* but for those more fortunate out there (see what i did hehe :wink:) Gets the bots current status.") 
-    await bot.say("**That's all for now folks! More comin' soon! :)**")
+    await bot.say("Use '_help' for a list of current commands and other stuffs.")
     await bot.say("Made and scripted by Enderxcthz#1181. All rights reserved©")
     print ("User (input) Introduction Command.")
 
@@ -57,9 +52,10 @@ async def unban(ctx, user: discord.Member):
 async def roast(ctx, user: discord.Member):
     messages = ['foo', 'bar', 'baz', 'bork']
     await bot.say(random.choice(messages))
-    
-game = discord.Game(name='Testing', type=1)
-await bot.change_presence(game=game)
 
-    
-bot.run(os.environ["TOKEN"])
+@bot.command(pass_context=True)
+async def help(ctx, member: discord.Member):
+    await bot.send_message(member, 'You need help? Cash me outside, HOW ABOU- no im just kidding :persevere:')
+    await bot.send_message(member, 'https://hastebin.com/jazipaxeke.vbs')
+
+    bot.run(os.environ["TOKEN"])
