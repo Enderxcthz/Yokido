@@ -16,15 +16,17 @@ async def on_ready():
     
 @bot.event
 async def on_server_join(server):
-    general = find(lambda x: x.name == 'announcements',  server.text_channels)
-    if general and general.permissions_for(server.me).send_messages:
-        await announcements.send('Salutations {}! I have been waiting to join you (no not rlly) hehehe. [IF I HAVE BEEN INVITED TO YOUR SERVER THAT MEANS THAT YOUR SERVER IS SPECIAL! :O] But why :thinking: ?'(server.name))
-        await announcements.send('Yokido (MEEE >_<) Is an extremley early alpha access bot, availible only to a few people: -The devs close friends & -The three lucky sponsors.'(server.name))
-        await announcements.send('So wait! What does that mean? IS MY OWNER THE FRIEND OF THE DEV AND I CAN USE HIM TO ACCESS EVERYTHING OMG (answer: no, tbh no-one really cares :joy:)'(server.name))
-        await announcements.send('Slogan: *The bot of all the bots...the bot of the bots!* So! Now that we are done with the formalities, let us begin!'(server.name))
-        await announcements.send('Honourable mentions: Mutxnts & Wiki ~ Without you guys, this could not have happened.'(server.name))
-        await announcements.send('Made and scripted by Enderxcthz#1181 All rights reserved©.'(server.name))
-        await announcements.send('Do "_introduction" to begin! I am allllll yours! (Totally 100% not gei :sweat_smile:)'(server.name))
+    try:
+        channel = find(lambda x: x.name == 'general',  server.text_channels)
+    except:
+        channel = server.default_channel
+       await channel.send('Salutations {}! I have been waiting to join you (no not rlly) hehehe. [IF I HAVE BEEN INVITED TO YOUR SERVER THAT MEANS THAT YOUR SERVER IS SPECIAL! :O] But why :thinking: ?'(server.name))
+       await channel.send('Yokido (MEEE >_<) Is an extremley early alpha access bot, availible only to a few people: -The devs close friends & -The three lucky sponsors.'(server.name))
+       await channel.send('So wait! What does that mean? IS MY OWNER THE FRIEND OF THE DEV AND I CAN USE HIM TO ACCESS EVERYTHING OMG (answer: no, tbh no-one really cares :joy:)'(server.name))
+       await channel.send('Slogan: *The bot of all the bots...the bot of the bots!* So! Now that we are done with the formalities, let us begin!'(server.name))
+       await channel.send('Honourable mentions: Mutxnts & Wiki ~ Without you guys, this could not have happened.'(server.name))
+       await channel.send('Made and scripted by Enderxcthz#1181 All rights reserved©.'(server.name))
+       await channel.send('Do "_introduction" to begin! I am allllll yours! (Totally 100% not gei :sweat_smile:)'(server.name))
         
 @bot.command(pass_context=True)
 async def introduction(ctx):
