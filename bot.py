@@ -5,6 +5,7 @@ from discord.ext import commands
 from discord.ext.commands import Bot
 import asyncio
 import os
+from discord.utils import find
 
 bot = commands.Bot(command_prefix='_')
 
@@ -13,7 +14,19 @@ async def on_ready():
     print ("OOMPH! I am a-ready! (loading awesome genji sound effects...)")
     print ("Booting up stupidity- " + bot.user.name)
     print ("With the random numberz: " + bot.user.id)
-
+    
+@client.event
+async def on_guild_join(guild):
+    general = find(lambda x: x.name == 'general',  guild.text_channels)
+    if general and general.permissions_for(guild.me).send_messages:
+        await general.send('Salutations {}! I have been waiting to join you (no not rlly) hehehe. [IF I HAVE BEEN INVITED TO YOUR SERVER THAT MEANS THAT YOUR SERVER IS SPECIAL! :O] But why :thinking: ?'.format(guild.name))
+        await general.send('Yokido (MEEE >_<) Is an extremley early alpha access bot, availible only to a few people: -The devs close friends & -The three lucky sponsors.'.format(guild.name))
+        await general.send('So wait! What does that mean? IS MY OWNER THE FRIEND OF THE DEV AND I CAN USE HIM TO ACCESS EVERYTHING OMG (answer: no, tbh no-one really cares :joy:)'.format(guild.name))
+        await general.send('Slogan: *The bot of all the bots...the bot of the bots!* So! Now that we are done with the formalities, let us begin!'.format(guild.name))
+        await general.send('Honourable mentions: Mutxnts & Wiki ~ Without you guys, this could not have happened.'.format(guild.name))
+        await general.send('Made and scripted by Enderxcthz#1181 All rights reserved©.'.format(guild.name))
+        await general.send('Do "_introduction" to begin! I am allllll yours! (Totally 100% not gei :sweat_smile:)'.format(guild.name))
+        
 @bot.command(pass_context=True)
 async def introduction(ctx):
     await bot.say("Konichi- ugh forget, was never an A* even at my own language! HOI OVER THERE! :wave: I am **Yokido**! The bot of all bots! (-i think, das is vat my creator told meh!) I am an *EXCULSIVE* (well not rlly :joy:) bot in EXTREME EARLY ACCESS! But judging by your facial expression, you don't care, cya bub! :wink:")
