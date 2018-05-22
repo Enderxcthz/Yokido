@@ -2,7 +2,6 @@
 
 import discord
 from discord.ext import commands
-from discord.ext.commands import Bot
 import asyncio
 import os
 from discord.utils import find
@@ -15,17 +14,17 @@ async def on_ready():
     print ("Booting up stupidity- " + bot.user.name)
     print ("With the random numberz: " + bot.user.id)
     
-@client.event
-async def on_guild_join(guild):
-    general = find(lambda x: x.name == 'general',  guild.text_channels)
-    if general and general.permissions_for(guild.me).send_messages:
-        await general.send('Salutations {}! I have been waiting to join you (no not rlly) hehehe. [IF I HAVE BEEN INVITED TO YOUR SERVER THAT MEANS THAT YOUR SERVER IS SPECIAL! :O] But why :thinking: ?'.format(guild.name))
-        await general.send('Yokido (MEEE >_<) Is an extremley early alpha access bot, availible only to a few people: -The devs close friends & -The three lucky sponsors.'.format(guild.name))
-        await general.send('So wait! What does that mean? IS MY OWNER THE FRIEND OF THE DEV AND I CAN USE HIM TO ACCESS EVERYTHING OMG (answer: no, tbh no-one really cares :joy:)'.format(guild.name))
-        await general.send('Slogan: *The bot of all the bots...the bot of the bots!* So! Now that we are done with the formalities, let us begin!'.format(guild.name))
-        await general.send('Honourable mentions: Mutxnts & Wiki ~ Without you guys, this could not have happened.'.format(guild.name))
-        await general.send('Made and scripted by Enderxcthz#1181 All rights reserved©.'.format(guild.name))
-        await general.send('Do "_introduction" to begin! I am allllll yours! (Totally 100% not gei :sweat_smile:)'.format(guild.name))
+@bot.event
+async def on_server_join(server):
+    general = find(lambda x: x.name == 'announcements',  server.text_channels)
+    if general and general.permissions_for(server.me).send_messages:
+        await announcements.send('Salutations {}! I have been waiting to join you (no not rlly) hehehe. [IF I HAVE BEEN INVITED TO YOUR SERVER THAT MEANS THAT YOUR SERVER IS SPECIAL! :O] But why :thinking: ?'(server.name))
+        await announcements.send('Yokido (MEEE >_<) Is an extremley early alpha access bot, availible only to a few people: -The devs close friends & -The three lucky sponsors.'(server.name))
+        await announcements.send('So wait! What does that mean? IS MY OWNER THE FRIEND OF THE DEV AND I CAN USE HIM TO ACCESS EVERYTHING OMG (answer: no, tbh no-one really cares :joy:)'(server.name))
+        await announcements.send('Slogan: *The bot of all the bots...the bot of the bots!* So! Now that we are done with the formalities, let us begin!'(server.name))
+        await announcements.send('Honourable mentions: Mutxnts & Wiki ~ Without you guys, this could not have happened.'(server.name))
+        await announcements.send('Made and scripted by Enderxcthz#1181 All rights reserved©.'(server.name))
+        await announcements.send('Do "_introduction" to begin! I am allllll yours! (Totally 100% not gei :sweat_smile:)'(server.name))
         
 @bot.command(pass_context=True)
 async def introduction(ctx):
