@@ -14,22 +14,29 @@ async def on_ready():
     print ("Booting up stupidity- " + bot.user.name)
     print ("With the random numberz: " + bot.user.id)
     
+
+@bot.event
+async def on_ready(): 
+    await bot.change_presence(game=discord.Game(name="Playing with over {}".format(len(bot.servers)))
+    print("Successfully changed bot status!" + bot.user.name)
+ 
+    
 @bot.event
 async def on_server_join(server):
     try:
         channel = find(lambda x: x.name == 'general',  server.text_channels)
     except:
-        channel = server.default_channel
+            channel = server.default_channel
     
-if channel and channel.permissions_for(server.me).send_messages:
+    if channel and channel.permissions_for(server.me).send_messages:
         
-    await channel.send('Salutations {}! I have been waiting to join you (no not rlly) hehehe. [IF I HAVE BEEN INVITED TO YOUR SERVER THAT MEANS THAT YOUR SERVER IS SPECIAL! :O] But why :thinking: ?'.format(server.name))
-    await channel.send('Yokido (MEEE >_<) Is an extremley early alpha access bot, availible only to a few people: -The devs close friends & -The three lucky sponsors.'.format(server.name))
-    await channel.send('So wait! What does that mean? IS MY OWNER THE FRIEND OF THE DEV AND I CAN USE HIM TO ACCESS EVERYTHING OMG (answer: no, tbh no-one really cares :joy:)'.format(server.name))
-    await channel.send('Slogan: *The bot of all the bots...the bot of the bots!* So! Now that we are done with the formalities, let us begin!'.format(server.name))
-    await channel.send('Honourable mentions: Mutxnts & Wiki ~ Without you guys, this could not have happened.'.format(server.name))
-    await channel.send('Made and scripted by Enderxcthz#1181 All rights reserved©.'.format(server.name))
-    await channel.send('Do "_introduction" to begin! I am allllll yours! (Totally 100% not gei :sweat_smile:)'.format(server.name))
+        await channel.send('Salutations {}! I have been waiting to join you (no not rlly) hehehe. [IF I HAVE BEEN INVITED TO YOUR SERVER THAT MEANS THAT YOUR SERVER IS SPECIAL! :O] But why :thinking: ?'.format(server.name))
+        await channel.send('Yokido (MEEE >_<) Is an extremley early alpha access bot, availible only to a few people: -The devs close friends & -The three lucky sponsors.'.format(server.name))
+        await channel.send('So wait! What does that mean? IS MY OWNER THE FRIEND OF THE DEV AND I CAN USE HIM TO ACCESS EVERYTHING OMG (answer: no, tbh no-one really cares :joy:)'.format(server.name))
+        await channel.send('Slogan: *The bot of all the bots...the bot of the bots!* So! Now that we are done with the formalities, let us begin!'.format(server.name))
+        await channel.send('Honourable mentions: Mutxnts & Wiki ~ Without you guys, this could not have happened.'.format(server.name))
+        await channel.send('Made and scripted by Enderxcthz#1181 All rights reserved©.'.format(server.name))
+        await channel.send('Do "_introduction" to begin! I am allllll yours! (Totally 100% not gei :sweat_smile:)'.format(server.name))
    
 
         
