@@ -17,7 +17,7 @@ async def on_ready():
 
 @bot.event
 async def on_ready(): 
-    await bot.change_presence(game=discord.Game(name="Playing with over {}".format(len(bot.servers))))
+    await bot.change_presence(game=discord.Game(name=" with over {} servers!".format(len(bot.servers))))
     print("Successfully changed bot status!" + bot.user.name)
  
     
