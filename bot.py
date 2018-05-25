@@ -27,6 +27,8 @@ async def on_server_join(server):
         channel = find(lambda x: x.name == 'general',  server.text_channels)
     except:
         channel = server.default_channel
+    else:
+        print('Can\'t send message in {}. Please send owner error report.'.format(server))
     
     if channel and channel.permissions_for(server.me).send_messages:
         
@@ -85,8 +87,7 @@ bot.remove_command('help')
 async def help(ctx):
     await bot.send_message(ctx.message.author, 'You need help? Cash me outside, HOW ABOU- no im just kidding :persevere:')
     await bot.send_message(ctx.message.author, 'https://hastebin.com/jazipaxeke.vbs')
-else:
-    print('Can\'t send message in {}. Please send owner error report.'.format(server))
+
     
 
 bot.run(os.environ["TOKEN"])
