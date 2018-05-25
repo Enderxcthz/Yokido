@@ -26,7 +26,7 @@ async def on_server_join(server):
     try:
         channel = find(lambda x: x.name == 'general',  server.text_channels)
     except:
-            channel = server.default_channel
+        channel = server.default_channel
     
     if channel and channel.permissions_for(server.me).send_messages:
         
@@ -83,8 +83,8 @@ bot.remove_command('help')
 
 @bot.command(pass_context=True)
 async def help(ctx):
-    await bot.send_message(ctx.author, 'You need help? Cash me outside, HOW ABOU- no im just kidding :persevere:')
-    await bot.send_message(ctx.author, 'https://hastebin.com/jazipaxeke.vbs')
+    await bot.send_message(ctx.message.author, 'You need help? Cash me outside, HOW ABOU- no im just kidding :persevere:')
+    await bot.send_message(ctx.message.author, 'https://hastebin.com/jazipaxeke.vbs')
     
 
 bot.run(os.environ["TOKEN"])
