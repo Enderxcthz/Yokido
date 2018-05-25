@@ -80,6 +80,13 @@ async def unban(ctx, user: discord.Member):
 async def roast(ctx, user: discord.Member):
     messages = ['foo', 'bar', 'baz', 'bork']
     await bot.say(random.choice(messages))
+    
+@bot.command(pass_context=True)
+async def banlist(ctx):
+
+bannnedUsers = await bot.get_bans(serverID)
+for user in bannedUsers:
+    await bot.send_message(channelID, user.name + ' ' + user.id)
 
 bot.remove_command('help')
 
