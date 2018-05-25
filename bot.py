@@ -81,14 +81,14 @@ async def roast(ctx, user: discord.Member):
     messages = ['foo', 'bar', 'baz', 'bork']
     await bot.say(random.choice(messages))
     
-@bot.command(pass_context=True)
-async def banlist(ctx):
+@bot.command(pass_context = True)
+@commands.has_role("Server Owner")
+async def saythis(ctx, *args):
+    mesg = ' '.join(args)
+    await bot.delete_message(ctx.message)
+    return await bot.say(mesg)
+    await bot.delete_message(ctx.message)
 
-bannnedUsers = await bot.get_bans(serverID)
-for user in bannedUsers:
-    await bot.send_message(channelID, user.name + ' ' + user.id)
-
-bot.remove_command('help')
 
 @bot.command(pass_context=True)
 async def help(ctx):
