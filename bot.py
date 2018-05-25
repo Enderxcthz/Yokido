@@ -86,7 +86,7 @@ async def help(ctx):
     await bot.send_message(ctx.message.author, 'You need help? Cash me outside, HOW ABOU- no im just kidding :persevere:')
     await bot.send_message(ctx.message.author, 'https://hastebin.com/jazipaxeke.vbs')
 else:
-     print('Can\'t send message in {}. Please send owner error report.'.format(server))
+    print('Can\'t send message in {}. Please send owner error report.'.format(server))
     
 
 bot.run(os.environ["TOKEN"])
