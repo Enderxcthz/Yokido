@@ -28,8 +28,8 @@ async def on_message(message):
     # Yokido sends message:
     if message.author == bot.user:
         return
-    if '_help' in message.content:
-        emoji = get(bot.get_all_emojis(), name=':eyes:')
+    if ':eyes:' in message.content:
+        emoji = get(bot.get_all_emojis(), name='_help')
         await bot.add_reaction(message, emoji)
         await bot.say("{} Check your DM's!".format(user.name))
  
