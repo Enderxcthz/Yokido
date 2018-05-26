@@ -80,7 +80,7 @@ async def unban(ctx, user: discord.Member):
 @bot.command(pass_context=True)
 async def warn(ctx, user: discord.Member, reason: str = None):
     await bot.send_message(user, "You were warned for: {}, in the {} server. This will be added to your record.".format(reason, server.name))
-    await bot.say("{} was warned successfully! :white_check_mark:".format(user.mention))
+    await bot.say("{} was warned successfully! ✅".format(user.mention))
     
     
 @bot.command(pass_context=True)
