@@ -5,7 +5,6 @@ from discord.ext import commands
 import asyncio
 import os
 from discord.utils import find
-from discord.utils import get
 import random
 
 bot = commands.Bot(command_prefix='_')
@@ -21,17 +20,6 @@ async def on_ready():
 async def on_ready(): 
     await bot.change_presence(game=discord.Game(name=" with over {} servers!".format(len(bot.servers))))
     print("Successfully changed bot status!" + bot.user.name)
-    
-
-@bot.event
-async def on_message(message):
-    # Yokido sends message:
-    if message.author == bot.user:
-        return
-    if ':eyes:' in message.content:
-        emoji = get(bot.get_all_emojis(), name='_help')
-        await bot.add_reaction(message, emoji)
-        await bot.say("{} Check your DM's!".format(user.name))
  
     
 @bot.event
