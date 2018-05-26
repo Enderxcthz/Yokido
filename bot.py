@@ -5,6 +5,7 @@ from discord.ext import commands
 import asyncio
 import os
 from discord.utils import find
+import random
 
 bot = commands.Bot(command_prefix='_')
 
@@ -86,7 +87,8 @@ async def warn(ctx, user: discord.Member, reason: str = None):
 async def roast(ctx, user: discord.Member):
     messages = ['foo', 'bar', 'baz', 'bork']
     await bot.say(random.choice(messages))
-    
+
+bot.remove_command('help')   
 
 @bot.command(pass_context=True)
 async def help(ctx):
