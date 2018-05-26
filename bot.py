@@ -75,6 +75,12 @@ async def ban(ctx, user: discord.Member):
 async def unban(ctx, user: discord.Member): 
     await bot.say("{} was unbanned successfully! Your welcome. :smile:".format(user.name))
     await bot.unban(user)
+
+@bot.command(pass_context=True)
+async def warn(ctx, user: discord.Member, reason: str = None):
+    await bot.send_message(user, "You were warned for: {}".format(reason))
+    await bot.say("{} was warned successfully! :white_check_mark:".format(user.mention))
+    
     
 @bot.command(pass_context=True)
 async def roast(ctx, user: discord.Member):
