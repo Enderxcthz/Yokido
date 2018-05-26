@@ -60,7 +60,7 @@ async def getdiscordinfo(ctx, user: discord.Member):
 
 @bot.command(pass_context=True)
 async def kick(ctx, user: discord.Member):
-    await bot.say("You kicked us {}, Now we kick you :pensive:".format(user.name))
+    await bot.say("You kicked us {}, Now we kick you :pensive:".format(user.mention))
     await bot.kick(user)
 
 @bot.command(pass_context=True)
@@ -69,7 +69,7 @@ async def version(ctx):
 
 @bot.command(pass_context=True)
 async def ban(ctx, user: discord.Member):
-    await bot.say("You broke the rules {}, now get banned fool! :scream:".format(user.name))
+    await bot.say("You broke the rules {}, now get banned fool! :scream:".format(user.mention))
     await bot.ban(user)
 
 @bot.command(pass_context=True)
@@ -78,7 +78,7 @@ async def unban(ctx, user: discord.Member):
     await bot.unban(user)
 
 @bot.command(pass_context=True)
-async def warn(ctx, server, user: discord.Member, reason: str = None):
+async def warn(ctx, user: discord.Member, reason: str = None):
     await bot.send_message(user, "You were warned for: {}".format(reason))
     await bot.send_message(user, "In the {} server. This warn will be added to your record.".format(server.name))
     await bot.say("{} was warned successfully! :white_check_mark:".format(user.mention))
@@ -86,7 +86,7 @@ async def warn(ctx, server, user: discord.Member, reason: str = None):
     
 @bot.command(pass_context=True)
 async def roast(ctx, user: discord.Member):
-    messages = ['foo', 'bar', 'baz', 'bork']
+    messages = ['You are an idiot {}!'.format(user.mention), 'bar', 'baz', 'bork']
     await bot.say(random.choice(messages))
 
 
