@@ -6,6 +6,7 @@ import asyncio
 import os
 from discord.utils import find
 import random
+import server
 
 bot = commands.Bot(command_prefix='_')
 
