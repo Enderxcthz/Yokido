@@ -6,7 +6,6 @@ import asyncio
 import os
 from discord.utils import find
 import random
-import server
 
 bot = commands.Bot(command_prefix='_')
 
@@ -81,7 +80,7 @@ async def unban(ctx, user: discord.Member):
 @bot.command(pass_context=True)
 async def warn(ctx, user: discord.Member, reason: str = None):
     await bot.send_message(user, "You were warned for: {}".format(reason))
-    await bot.send_message(user, "In the {} server. This warn will be added to your record.".format(server.name))
+    await bot.send_message(user, "In the {} server. This warn will be added to your record.".format(guild.name))
     await bot.say("{} was warned successfully! :white_check_mark:".format(user.mention))
     
     
