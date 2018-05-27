@@ -9,8 +9,6 @@ import random
 
 bot = commands.Bot(command_prefix='_')
 
-my_user_id = "352461162819878912"
-
 @bot.event
 async def on_ready():
     print ("OOMPH! I am a-ready! (loading awesome genji sound effects...)")
@@ -99,7 +97,7 @@ async def help(ctx):
     await bot.send_message(ctx.message.author, 'https://hastebin.com/jazipaxeke.vbs')
     
 @bot.command(pass_context=True)
-@commands.has_user.id('352461162819878912')
+@commands.check(lambda ctx: ctx.author.id == '352461162819878912')
 async def shutdown(ctx):
     await bot.logout()
                 
