@@ -102,9 +102,10 @@ async def shutdown(ctx):
     await bot.logout()
                 
 @bot.command(pass_context=True)
-@commands.check(lambda ctx: ctx.author.id == '352461162819878912')
-async def announce(ctx, message):
+@commands.check(lambda ctx: ctx.message.author.id == '352461162819878912')
+async def announce(ctx, *, message):
     await bot.say(message)
+                
 
     
 
