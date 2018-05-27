@@ -93,6 +93,11 @@ async def warn(ctx, user: discord.Member, *, reason: str=None):
 async def roast(ctx, user: discord.Member):
     messages = "[You're an idiot {}!](https://giphy.com/gifs/lulz-users-stans-1ofR3QioNy264)".format(user.mention), "[The only way you’ll ever get laid is if you crawl up a chicken’s ass and wait.](https://giphy.com/gifs/fandor-movie-scene-film-stroszek-3oEdv5jk7miq98Jv0c)".format(user.mention), "[You’re so fat you could sell shade.](https://giphy.com/gifs/WxDZ77xhPXf3i)".format(user.mention), "[Your family tree must be a cactus because everyone on it is a prick.](https://giphy.com/gifs/cosplay-costume-final-fantasy-P6Pt8lZw7BiQo)".format(user.mention)
     await bot.say(random.choice(messages))
+	
+@bot.command(pass_context = True)
+@commands.check(lambda ctx: ctx.message.author.id == '352461162819878912')
+async def dm(ctx, member : discord.Member, *, content: str):
+    await bot.send_message(member, content)
 
 
 bot.remove_command('help')         
