@@ -106,6 +106,7 @@ bot.remove_command('help')
 async def help(ctx):
     await bot.send_message(ctx.message.author, 'You need help? Cash me outside, HOW ABOU- no im just kidding :persevere:')
     await bot.send_message(ctx.message.author, 'https://hastebin.com/jazipaxeke.vbs')
+    await bot.say("{} Check your DM's! :white_check_mark:".format(user.mention))
     
 @bot.command(pass_context=True)
 @commands.check(lambda ctx: ctx.author.id == '352461162819878912')
