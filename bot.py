@@ -21,15 +21,11 @@ async def on_ready():
     await bot.change_presence(game=discord.Game(name=" with over {} servers!".format(len(bot.servers))))
     print("Successfully changed bot status!" + bot.user.name)
     
-@bot.event
-async def on_command_error(ctx, error):
-	bot.captureMessage(error)
 
-'''
 @bot.event
 async def on_command_error(ctx, error):
 	await ctx.send('`{}` is not a valid command. Please check the spelling and make sure everything is spelled correctly.'.format(error))
-	'''
+	
  
     
 @bot.event
