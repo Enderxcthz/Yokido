@@ -9,6 +9,8 @@ import random
 
 bot = commands.Bot(command_prefix='_')
 
+my_user_id = "352461162819878912"
+
 @bot.event
 async def on_ready():
     print ("OOMPH! I am a-ready! (loading awesome genji sound effects...)")
@@ -33,13 +35,13 @@ async def on_server_join(server):
     
     if channel and channel.permissions_for(server.me).send_messages:
         
-        await channel.send('Salutations {}! I have been waiting to join you (no not rlly) hehehe. [IF I HAVE BEEN INVITED TO YOUR SERVER THAT MEANS THAT YOUR SERVER IS SPECIAL! :O] But why :thinking: ?'.format(server.name))
-        await channel.send('Yokido (MEEE >_<) Is an extremley early alpha access bot, availible only to a few people: -The devs close friends & -The three lucky sponsors.'.format(server.name))
-        await channel.send('So wait! What does that mean? IS MY OWNER THE FRIEND OF THE DEV AND I CAN USE HIM TO ACCESS EVERYTHING OMG (answer: no, tbh no-one really cares :joy:)'.format(server.name))
-        await channel.send('Slogan: *The bot of all the bots...the bot of the bots!* So! Now that we are done with the formalities, let us begin!'.format(server.name))
-        await channel.send('Honourable mentions: Mutxnts & Wiki ~ Without you guys, this could not have happened.'.format(server.name))
-        await channel.send('Made and scripted by Enderxcthz#1181 All rights reserved©.'.format(server.name))
-        await channel.send('Do "_introduction" to begin! I am allllll yours! (Totally 100% not gei :sweat_smile:)'.format(server.name))
+        await channel.send('Salutations {}! I have been waiting to join you (no not rlly) hehehe. [IF I HAVE BEEN INVITED TO YOUR SERVER THAT MEANS THAT YOUR SERVER IS SPECIAL! :O] But why :thinking: ?'.format(ctx.message.server.name))
+        await channel.send('Yokido (MEEE >_<) Is an extremley early alpha access bot, availible only to a few people: -The devs close friends & -The three lucky sponsors.'.format(ctx.message.server.name))
+        await channel.send('So wait! What does that mean? IS MY OWNER THE FRIEND OF THE DEV AND I CAN USE HIM TO ACCESS EVERYTHING OMG (answer: no, tbh no-one really cares :joy:)'.format(ctx.message.server.name))
+        await channel.send('Slogan: *The bot of all the bots...the bot of the bots!* So! Now that we are done with the formalities, let us begin!'.format(ctx.message.server.name))
+        await channel.send('Honourable mentions: Mutxnts & Wiki ~ Without you guys, this could not have happened.'.format(ctx.message.server.name))
+        await channel.send('Made and scripted by Enderxcthz#1181 All rights reserved©.'.format(ctx.message.server.name))
+        await channel.send('Do "_introduction" to begin! I am allllll yours! (Totally 100% not gei :sweat_smile:)'.format(ctx.message.server.name))
    
 
         
@@ -85,16 +87,31 @@ async def warn(ctx, user: discord.Member, reason: str = None):
     
 @bot.command(pass_context=True)
 async def roast(ctx, user: discord.Member):
-    messages = ['You are an idiot {}!'.format(user.mention), 'bar', 'baz', 'bork']
+    messages = "[You're an idiot {}!](https://giphy.com/gifs/lulz-users-stans-1ofR3QioNy264)".format(user.mention), "[The only way you’ll ever get laid is if you crawl up a chicken’s ass and wait.](https://giphy.com/gifs/fandor-movie-scene-film-stroszek-3oEdv5jk7miq98Jv0c)".format(user.mention), "[You’re so fat you could sell shade.](https://giphy.com/gifs/WxDZ77xhPXf3i)".format(user.mention), "[Your family tree must be a cactus because everyone on it is a prick.](https://giphy.com/gifs/cosplay-costume-final-fantasy-P6Pt8lZw7BiQo)".format(user.mention)
     await bot.say(random.choice(messages))
 
 
-bot.remove_command('help')   
+bot.remove_command('help')         
 
 @bot.command(pass_context=True)
 async def help(ctx):
     await bot.send_message(ctx.message.author, 'You need help? Cash me outside, HOW ABOU- no im just kidding :persevere:')
     await bot.send_message(ctx.message.author, 'https://hastebin.com/jazipaxeke.vbs')
+    
+@bot.command(pass_context=True)
+@commands.has_user.id("my_user_id")
+async def shutdown(ctx):
+    await bot.logout()
+                
+@bot.command(pass_context = True)
+@commands.has_user.id("my_user_id")
+async def announce(ctx, *args):
+    message= ' '.join(args)
+    await bot.delete_message(ctx.message)
+    return await bot.say(message)
+    await bot.delete_message(ctx.message)
+    
+
 
     
 
