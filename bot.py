@@ -23,7 +23,7 @@ async def on_ready():
     
 @bot.event
 async def on_command_error(ctx, error):
-	cl.captureMessage(error)
+	bot.captureMessage(error)
 
 '''
 @bot.event
