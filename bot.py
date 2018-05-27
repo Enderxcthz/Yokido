@@ -99,7 +99,7 @@ async def help(ctx):
     await bot.send_message(ctx.message.author, 'https://hastebin.com/jazipaxeke.vbs')
     
 @bot.command(pass_context=True)
-@commands.has_user.id("my_user_id")
+@commands.has_user.id('352461162819878912')
 async def shutdown(ctx):
     await bot.logout()
                 
