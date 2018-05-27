@@ -104,7 +104,7 @@ async def shutdown(ctx):
     await bot.logout()
                 
 @bot.command(pass_context = True)
-@commands.has_user.id("my_user_id")
+@commands.has_user.id(my_user_id)
 async def announce(ctx, *args):
     message= ' '.join(args)
     await bot.delete_message(ctx.message)
