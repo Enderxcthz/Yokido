@@ -103,17 +103,8 @@ async def shutdown(ctx):
                 
 @bot.command(pass_context=True)
 @commands.check(lambda ctx: ctx.author.id == '352461162819878912')
-async def announce(ctx, *, message):
+async def announce(ctx, message):
     await bot.say(message)
-  
-@bot.command(pass_context=True)
-@commands.check(lambda ctx: ctx.author.id == '352461162819878912')
-async def say(ctx, *args):
-    mesg = ' '.join(args)
-    await bot.delete_message(ctx.message)
-    return await bot.say(mesg)
-    await bot.delete_message(ctx.message)
-
 
     
 
