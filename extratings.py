@@ -2,17 +2,15 @@ import discord
 from discord.ext import commands
 import asyncio
 
-    def __init__(self, bot):
-         self.bot = bot
+class Countdown:
+         def __init__(self, bot):
+                self.bot = bot
+         
+         @commands.command(pass_context=True)
+          async def countdown(self, ctx, interval, *, msg: str):
+                  await asyncio.sleep(int(interval))
+                  await self.bot.say(msg)
 
-class countdown:
-    """""    
-        
-        
-@bot.command(pass_context=True)
-async def countdown(interval, *, msg: str):
-        await asyncio.sleep(int(interval))
-        await bot.say(msg)
 
 def setup(bot):
-    bot.add_cog(countdown(bot))
+    bot.add_cog(Countdown(bot))
