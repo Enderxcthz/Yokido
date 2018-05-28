@@ -117,7 +117,7 @@ async def announce(ctx, *, message):
     await bot.say(message)
 
 @bot.command(pass_context=True)
-async def betatest(ctx, user: discord.Member):
+async def betatest(ctx):
 	await bot.say('Congratulations {}! Check your DM\'s! :white_check_mark:'.format(user.mention))
 	await bot.send_message(ctx.message.author, 'Thank you for deciding to be a BETA tester! :smiley:')
 	await bot.send_message(ctx.message.author, 'Once You have added me to your server, you will automatically be added to the BETA record! This means you will get special perks in the future :ok_hand: :eyes:')
