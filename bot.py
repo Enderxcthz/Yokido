@@ -80,13 +80,13 @@ async def unban(ctx, user: discord.Member):
 
 @bot.command(pass_context=True)
 async def warn(ctx, user: discord.Member, *, reason: str=None):
-    await bot.send_message(user, "You were warned for: {}, in the {} server. This will be added to your record.".format(reason, ctx.message.server.name))
+    await bot.send_message(user, "You were warned for: **{}**, in the *{}* server. This will be added to your record.".format(reason, ctx.message.server.name))
     await bot.say("{} was warned successfully! ✅".format(user.mention))
     
     
 @bot.command(pass_context=True)
 async def roast(ctx, user: discord.Member):
-    messages = "[You're an idiot {}!] https://giphy.com/gifs/lulz-users-stans-1ofR3QioNy264".format(user.mention), "[The only way you’ll ever get laid is if you crawl up a chicken’s ass and wait.](https://giphy.com/gifs/fandor-movie-scene-film-stroszek-3oEdv5jk7miq98Jv0c)".format(user.mention), "[You’re so fat you could sell shade.](https://giphy.com/gifs/WxDZ77xhPXf3i)".format(user.mention), "[Your family tree must be a cactus because everyone on it is a prick.](https://giphy.com/gifs/cosplay-costume-final-fantasy-P6Pt8lZw7BiQo)".format(user.mention)
+    messages = "You're an idiot {}! https://giphy.com/gifs/lulz-users-stans-1ofR3QioNy264".format(user.mention), "[The only way you’ll ever get laid is if you crawl up a chicken’s ass and wait.](https://giphy.com/gifs/fandor-movie-scene-film-stroszek-3oEdv5jk7miq98Jv0c)".format(user.mention), "[You’re so fat you could sell shade.](https://giphy.com/gifs/WxDZ77xhPXf3i)".format(user.mention), "[Your family tree must be a cactus because everyone on it is a prick.](https://giphy.com/gifs/cosplay-costume-final-fantasy-P6Pt8lZw7BiQo)".format(user.mention)
     await bot.say(random.choice(messages))
 	
 @bot.command(pass_context = True)
