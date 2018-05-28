@@ -2,7 +2,7 @@ import discord
 from discord.ext import commands
 
 
-class QuickPoll:
+class voteit:
     """"""
 
     def __init__(self, bot):
@@ -11,10 +11,10 @@ class QuickPoll:
     @commands.command(pass_context=True)
     async def voteit(self, ctx, question, *, options: str):
         if len(options) <= 1:
-            await self.bot.say('You need more than one option to make a poll!')
+            await self.bot.say('`You need more than one option to make a poll!`')
             return
         if len(options) > 10:
-            await self.bot.say('You cannot make a poll for more than 10 things!')
+            await self.bot.say('`You cannot make a poll for more than 10 things!`')
             return
 
         if len(options) == 2 and options[0] == 'yes' and options[1] == 'no':
@@ -63,4 +63,4 @@ class QuickPoll:
 
 
 def setup(bot):
-    bot.add_cog(quickpoll(bot))
+    bot.add_cog(voteit(bot))
