@@ -14,6 +14,8 @@ async def on_ready():
     print ("OOMPH! I am a-ready! (loading awesome genji sound effects...)")
     print ("Booting up stupidity- " + bot.user.name)
     print ("With the random numberz: " + bot.user.id)
+
+bot.load_extension('extratings')
     
 
 @bot.event
