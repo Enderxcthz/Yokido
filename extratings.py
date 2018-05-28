@@ -9,8 +9,9 @@ class Countdown:
          @commands.command(pass_context=True)
          async def countdown(self, ctx, interval, *, msg: str):
                   await asyncio.sleep(int(interval))
-                  await self.bot.say(msg)
-
+                  e = discord.Embed(color=0x123456, title='some title', description=msg)
+                  e.set_footer(text='some text')
+                  await bot.say(embed=e)
 
 def setup(bot):
     bot.add_cog(Countdown(bot))
