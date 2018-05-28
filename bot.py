@@ -16,6 +16,7 @@ async def on_ready():
     print ("With the random numberz: " + bot.user.id)
 
 bot.load_extension('extratings')
+bot.load_extension('voting')
     
 
 @bot.event
