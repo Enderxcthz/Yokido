@@ -9,7 +9,7 @@ class QuickPoll:
         self.bot = bot
 
     @commands.command(pass_context=True)
-    async def quickpoll(self, ctx, question, *options: str):
+    async def voteit(self, ctx, question, *, *options: str):
         if len(options) <= 1:
             await self.bot.say('You need more than one option to make a poll!')
             return
@@ -29,7 +29,7 @@ class QuickPoll:
         react_message = await self.bot.say(embed=embed)
         for reaction in reactions[:len(options)]:
             await self.bot.add_reaction(react_message, reaction)
-        embed.set_footer(text='Poll ID: {}'.format(react_message.id))
+        embed.set_footer(text='VoteIt! Yokido ID: {}'.format(react_message.id))
         await self.bot.edit_message(react_message, embed=embed)
 
     @commands.command(pass_context=True)
@@ -63,4 +63,4 @@ class QuickPoll:
 
 
 def setup(bot):
-    bot.add_cog(QuickPoll(bot))
+    bot.add_cog(voteit(bot))
