@@ -9,7 +9,7 @@ class voteit:
         self.bot = bot
 
     @commands.command(pass_context=True)
-    async def voteit(self, ctx, *question, *options: str):
+    async def voteit(self, ctx, question, *options: str):
         if len(options) <= 1:
             await self.bot.say('`You need more than one option to make a poll!`')
             return
