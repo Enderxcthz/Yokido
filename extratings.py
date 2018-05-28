@@ -7,7 +7,7 @@ class Countdown:
                 self.bot = bot
          
          @commands.command(pass_context=True)
-          async def countdown(self, ctx, interval, *, msg: str):
+         async def countdown(self, ctx, interval, *, msg: str):
                   await asyncio.sleep(int(interval))
                   await self.bot.say(msg)
 
