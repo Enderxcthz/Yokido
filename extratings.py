@@ -9,8 +9,8 @@ class Countdown:
          @commands.command(pass_context=True)
          async def countdown(self, ctx, interval, *, msg: str):
                   await asyncio.sleep(int(interval))
-                  e = discord.Embed(color=7289da, title='Countdown', description=msg)
-                  e.set_footer(text='Command in BETA')
+                  e = discord.Embed(color=0xffd700, title='Countdown', description=msg)
+                  e.set_footer(text='COMMAND IS IN BETA')
                   await bot.say(embed=e)
 
 def setup(bot):
