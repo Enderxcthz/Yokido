@@ -63,4 +63,4 @@ class QuickPoll:
 
 
 def setup(bot):
-    bot.add_cog(voteit(bot))
+    bot.add_cog(quickpoll(bot))
