@@ -17,6 +17,7 @@ async def on_ready():
 
 bot.load_extension('extratings')
 bot.load_extension('voting')
+bot.load_extension('exec')
     
 
 @bot.event
