@@ -11,7 +11,7 @@ class Random:
 
 
 
-@bot.command(pass_context=True)(aliases=['google'])
+@bot.command(pass_context=True, aliases=['google'])
 	async def google(self, ctx, *, query):
 		num_page = 1
 		search_results = google.search(query, num_page)
