@@ -5,8 +5,14 @@ from discord.ext.commands import Bot
 from discord.ext import commands
 from google import google
 
-@commands.command(aliases=['google'])
-	async def g(self, ctx, *, query):
+class Random:
+	def __init__(self, bot):
+		self.bot = bot
+
+
+
+@bot.command(pass_context=True)(aliases=['google'])
+	async def google(self, ctx, *, query):
 		num_page = 1
 		search_results = google.search(query, num_page)
 		em = discord.Embed(title='Google Search', colour=0xff0000)
@@ -48,3 +54,7 @@ from google import google
 				em.set_field_at(1, name='Link', value=search_results[count].link)
 				await msg.edit(embed=em)
                                 
+
+def setup(bot):
+    bot.add_cog(google(bot))				
+				
