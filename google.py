@@ -12,7 +12,7 @@ class Random:
 
 
 @bot.command(pass_context=True, aliases=['google'])
-	async def google(self, ctx, *, query):
+async def google(self, ctx, *, query):
 		num_page = 1
 		search_results = google.search(query, num_page)
 		em = discord.Embed(title='Google Search', colour=0xff0000)
