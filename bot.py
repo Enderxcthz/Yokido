@@ -116,6 +116,20 @@ async def shutdown(ctx):
 async def announce(ctx, *, message):
     await bot.say(message)
 
+@bot.command(pass_context = True)
+@commands.check(lambda ctx: ctx.message.author.id == '352461162819878912')
+async def say(ctx, *args):
+    mesg = ' '.join(args)
+    await bot.delete_message(ctx.message)
+    return await bot.say(mesg)
+    await bot.delete_message(ctx.message)
+	
+@bot.command(pass_context=True)
+@commands.check(lambda ctx: ctx.message.author.id == '352461162819878912')
+async def ask(ctx, member : discord.Member, *, content: str):
+    await bot.send_message(member, content)
+    await bot.send_message(member, "Please respond with your answer to the question with #answer YOUR ANSWER")
+
 @bot.command(pass_context=True)
 async def betatest(ctx):
 	await bot.say('Congratulations {}! Check your DM\'s! :white_check_mark:'.format(ctx.message.author.mention))
