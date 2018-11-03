@@ -63,6 +63,13 @@ async def getdiscordinfo(ctx, user: discord.Member):
     await bot.say("The user joined the fam at: **{}**".format(user.joined_at))
 
 @bot.command(pass_context=True)
+async def message_role(ctx, role: discord.Role, *, message):
+    for member in ctx.message.server.members:
+        if role in member.roles:
+            await bot.send_message(member, message)
+
+
+@bot.command(pass_context=True)
 async def kick(ctx, user: discord.Member):
     await bot.say("You kicked us {}, Now we kick you :pensive:".format(user.mention))
     await bot.kick(user)
