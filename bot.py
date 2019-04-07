@@ -138,6 +138,13 @@ async def betatest(ctx):
 	await bot.send_message(ctx.message.author, 'Once You have added me to your server, you will automatically be added to the BETA record! This means you will get special perks in the future :ok_hand: :eyes:')
 	await bot.send_message(ctx.message.author, 'https://hastebin.com/pejihetuho.pas Here we go {}! Your journey begins now! :thumbsup: :sparkling_heart:'.format(ctx.message.author.mention))
                 
+## Added 7/4/19 @ 22:55
+
+@bot.command(pass_context=True)
+async def optout(ctx, user: discord.Member):
+	await bot.say("{} has opted-out of the Offer-Alerts messages.".format(ctx.message.author.mention))
+    	role = get(ctx.message.server.roles, name='member')
+    	await bot.remove_roles(user, role)
 
     
 
