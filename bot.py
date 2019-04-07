@@ -142,9 +142,9 @@ async def betatest(ctx):
 
 @bot.command(pass_context=True)
 async def optout(ctx, user: discord.Member):
+	role = get(ctx.message.server.roles, name='Offer Alerts 🚨')
+	await bot.remove_roles(user, role)
 	await bot.say("{} has opted-out of the Offer-Alerts messages.".format(ctx.message.author.mention))
-    	role = get(ctx.message.server.roles, name='member')
-    	await bot.remove_roles(user, role)
 
     
 
